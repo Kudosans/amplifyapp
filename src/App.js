@@ -7,7 +7,7 @@ import { Amplify } from 'aws-amplify';
 import awsconfig from './aws-exports';
 
 import "@aws-amplify/ui-react/styles.css";
-import { NavBar, studioTheme } from "./ui-components";
+import { NavBar, SideBar, studioTheme } from "./ui-components";
 
 Amplify.configure(awsconfig);
 
@@ -15,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
+      <SideBar />
     </div>
   );
 }
