@@ -6,7 +6,10 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import {
   Flex,
   Icon,
@@ -16,7 +19,11 @@ import {
   View,
 } from "@aws-amplify/ui-react";
 export default function NavBar(props) {
-  const { overrides, ...rest } = props;
+  const { proname, overrides, ...rest } = props;
+  const dashboardOnClick = useNavigateAction({
+    type: "url",
+    url: "https://twitter.com/?lang=ja",
+  });
   return (
     <Flex
       gap="20px"
@@ -119,7 +126,10 @@ export default function NavBar(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Dashboard"
+          children="Twitter"
+          onClick={() => {
+            dashboardOnClick();
+          }}
           {...getOverrideProps(overrides, "Dashboard")}
         ></Text>
         <Text
